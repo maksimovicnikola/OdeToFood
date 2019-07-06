@@ -9,7 +9,7 @@
         <div class="input-group">
             <input type="search" class="form-control" asp-for="SearchTerm" />
             <span class="input-group-btn">
-                <button class="btn btn-default">
+                <button class="btn btn-light">
                     <i class="fa fa-search"></i>
                 </button>
             </span>
@@ -23,15 +23,21 @@
             <th>Name</th>
             <th>Location</th>
             <th>Cuisine type</th>
+            <th></th>
         </tr>
     </thead>
     @foreach (var restaurant in @Model.Restaurants)
     {
-        <tr>
-            <td>@restaurant.Name</td>
-            <td>@restaurant.Location</td>
-            <td>@restaurant.Cuisine</td>
-        </tr>
+<tr>
+    <td>@restaurant.Name</td>
+    <td>@restaurant.Location</td>
+    <td>@restaurant.Cuisine</td>
+    <td>
+        <a class="btn btn-lg" asp-page="./Detail" asp-route-restaurantId="@restaurant.Id">
+            <i class="fa fa-search-plus"></i>
+        </a>
+    </td>
+</tr>
     }
 
 </table>
